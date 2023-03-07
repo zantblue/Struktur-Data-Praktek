@@ -33,10 +33,23 @@ class PersegiPanjang(BangunDatar):
         # return BangunDatar.get_panjang(self) * BangunDatar.get_lebar(self)
         return self.panjang * self.lebar 
        
-PP = PersegiPanjang(5,10)
-print(PP.luas())
+# PP = PersegiPanjang(5,10)
+# print(PP.luas())
+
+class Persegi(BangunDatar):
+    def __init__(self, sisi):
+        self.sisi = sisi
+
+    def set_sisi(self,sisi):
+        self.sisi = sisi
+    def get_sisi(self):
+        return self.sisi
+
+    def luas(self):
+        return self.sisi * self.sisi
+    
+p = Persegi(5)
+print(p.luas())
 # rb = BangunDatar(5,10)
 # rb.set_panjang(6)
 # print(rb.get_panjang())
-
-
