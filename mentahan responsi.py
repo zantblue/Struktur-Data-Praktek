@@ -20,15 +20,7 @@ class DoublyLinkedList:
         self.tail = new_node
         self.length = 1
 
-    def print_list(self):
-        if self.length == 0:
-            return False
-        temp = self.head
-        while temp != None:
-            print(temp.value)
-            temp = temp.next
-
-    def seleksiDewasa(self):
+    def seleksi(self):
         if self.length == 0:
             return False
         temp = self.head
@@ -36,23 +28,6 @@ class DoublyLinkedList:
             if temp.value > 300:
                 print(temp.value)
             temp = temp.next
-
-    def append(self, value):
-        new_node = Node(value)
-        if self.length == 0:
-            self.head = new_node
-            self.tail = new_node
-        else:
-            self.tail.next = new_node
-            new_node.prev = self.tail
-            self.tail = new_node
-        self.length += 1
-        return True
-    
-    def ubahLinkedList(self,list):
-        for j in list:
-            self.append(j)
-        return True
 
     def pop(self):
         if self.length == 0:
@@ -67,11 +42,36 @@ class DoublyLinkedList:
             temp.prev = None
         self.length -= 1
         return temp
+    
+    def append(self, value):
+        new_node = Node(value)
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            self.tail.next = new_node
+            new_node.prev = self.tail
+            self.tail = new_node
+        self.length += 1
+        return True
+    
+    def ubahlinkedlist(self,list):
+        for j in list:
+            self.append(j)
+        return True
+
+    def print_list(self):
+        if self.length == 0:
+            return False
+        temp = self.head
+        while temp != None:
+            print(temp.value)
+            temp = temp.next
 
 if __name__ == "__main__":
     Arr = [507,20,241,178,3,257,488,582,357,55,419,480,232,588,362,393,115,133,509,218]
     Arr = bubble_sort(Arr)
     myDLinkedList = DoublyLinkedList(0)
     myDLinkedList.pop()
-    myDLinkedList.ubahLinkedList(Arr)  
-    myDLinkedList.seleksiDewasa()
+    myDLinkedList.ubahlinkedlist(Arr)  
+    myDLinkedList.seleksi()
